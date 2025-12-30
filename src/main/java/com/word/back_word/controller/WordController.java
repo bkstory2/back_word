@@ -38,7 +38,7 @@ public class WordController {
         return sqlSession.update("wordMapper.updateWord", param);
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/delete")  // 이거 올려 보자고 
     public int delete(@RequestBody Map<String, Object> param) {
         return sqlSession.delete("wordMapper.deleteWord", param);
     }
