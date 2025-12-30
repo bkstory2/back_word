@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dayMapper">
+
+    <!-- 연결 테스트 쿼리 -->
+    <select id="testConnection" resultType="int">
+        SELECT 1
+    </select>
+
+    <select id="selectList" resultType="map">
+        SELECT * FROM tbl_day ORDER BY d_day
+    </select>
+
+    <insert id="insertDay">
+        INSERT INTO tbl_day (d_day, d_title)
+        VALUES (#{d_day}, #{d_title})
+    </insert>
+
+    <update id="updateDay">
+        UPDATE tbl_day
+        SET d_day = #{d_day}, d_title = #{d_title}
+        WHERE d_seq = #{d_seq}
+    </update>
+
+    <delete id="deleteDay">
+        DELETE FROM tbl_day WHERE d_seq = #{d_seq}
+    </delete>
+
+</mapper>

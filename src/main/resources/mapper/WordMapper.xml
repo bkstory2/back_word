@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="wordMapper">
+
+    <select id="selectByDay" resultType="map">
+        SELECT *
+        FROM tbl_word
+        WHERE d_seq = #{d_seq}
+        ORDER BY w_seq
+    </select>
+
+    <insert id="insertWord">
+        INSERT INTO tbl_word (d_seq, w_eng, w_kor)
+        VALUES (#{d_seq}, #{w_eng}, #{w_kor})
+    </insert>
+
+    <update id="updateWord">
+        UPDATE tbl_word
+        SET w_eng = #{w_eng},
+            w_kor = #{w_kor},
+            w_remember_yn = #{w_remember_yn}
+        WHERE w_seq = #{w_seq}
+    </update>
+
+    <delete id="deleteWord">
+        DELETE FROM tbl_word WHERE w_seq = #{w_seq}
+    </delete>
+
+</mapper>
